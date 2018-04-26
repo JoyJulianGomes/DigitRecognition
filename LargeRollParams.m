@@ -1,0 +1,16 @@
+function [Theta1, Theta2, Theta3, Theta4] = LargeRollParams(nn_params, ...
+                                                            Input_Layer_Size,...
+                                                            Hidden_Layer_1_Size,...
+                                                            Hidden_Layer_2_Size,...
+                                                            Hidden_Layer_3_Size,...
+                                                            Output_Layer_Size)
+%rolling parameters
+t1r = Hidden_Layer_1_Size; t1c = Input_Layer_Size+1;
+t2r = Hidden_Layer_2_Size; t2c = Hidden_Layer_1_Size+1;
+t3r = Hidden_Layer_3_Size; t3c = Hidden_Layer_2_Size+1;
+t4r = Output_Layer_Size; t4c = Hidden_Layer_3_Size+1;
+Theta1 = reshape(nn_params(1:t1r * t1c), t1r, t1c);
+Theta2 = reshape(nn_params((1 + t1r * t1c):(t1r * t1c)+(t2r * t2c)), t2r, t2c);
+Theta3 = reshape(nn_params((1 + (t1r * t1c)+(t2r * t2c)):(t1r * t1c)+(t2r * t2c)+(t3r*t3c)), t3r, t3c);
+Theta4 = reshape(nn_params((1 + (t1r * t1c)+(t2r * t2c)+(t3r*t3c)):end), t4r, t4c);
+end
