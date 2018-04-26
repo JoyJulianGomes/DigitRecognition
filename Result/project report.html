@@ -1,0 +1,182 @@
+<!Doctype HTML>
+<html>
+    <head>
+        <title >Project Report</title>
+        <style>
+            table th, td{border:1px solid black;}
+        </style>
+    </head>
+    <body>
+        <h1>
+            <p>
+                Digit Recognition on MNIST and Custom Bengali Digit Dataset
+            </p>
+        </h1>
+        <h2>
+            <p>
+                Introduction
+            </p>
+        </h2>
+        <p>
+            In this project the main target is to achieve as good performance as 
+            possible on the Bengali Digit dataset using fully connected neural 
+            network with backpropagation. But as the dataset is small, Multiple 
+            models are experimented on a large dataset MNIST. Models that 
+            performs well on MNIST will be further analyzed for Bengali Digit 
+            dataset.
+        </p>
+        <h1>
+            <p>
+                Model Selection for MNIST
+            </p>
+        </h1>
+        <h2>
+            <p>
+                Data Collection
+            </p>
+        </h2>
+        <p>
+            Required MNIST dataset is collected from the official host 
+            <a href="http://yann.lecun.com/exdb/mnist/">
+                http://yann.lecun.com/exdb/mnist/</a>. 
+            After downloading, it is very important to check the integrity of the 
+            data. In the first trial one of the downloaded file was 2KB small and 
+            it brought disaster to the whole process. A facility for checksum would
+                be much appreciated.
+            After unzipping the files from .gz format, The dataset was converted into .mat format as Matlab was used. To read the raw data a third party script “readMNIST.m” from mathworks website[1] was utilized.
+            The data comes in separate training set (60000 instance) and test set (10000 instances). For the purpose of evaluating models, validation set (10000 instances) was created from training set. So the final data file “MNIST.mat” contains:
+            <ol>
+                <li>Training Set = 50000 instances</li>
+                <li>Validation Set = 10000 instances</li>
+                <li>Test Set = 10000 instances</li>
+            </ol>
+        </p>
+        <h2>
+            <p>
+                Model Design
+            </p>
+        </h2>
+        <p>
+            9 models of different 3 hidden layer size and 4 different activation unit size were tested to the find relation between performance and architecture.
+        </p>
+        <p>
+            <strong>Definitions:</strong>
+            <ul>
+                <li>Large:	   Model containing 3 hidden layers.</li>
+                <li>Medium: Model containing 2 hidden layers.</li>
+                <li>Small:	   Model containing 1 hidden layers.</li>
+                <li>Distance: Distance word is used to indicate the activation size in each layer. input size of the MNIST images are 28*28=784 and the output space size is 10. So the distance is 784-10=774</li>
+                <li>Equal distance: Distance among the layers decreases equally.</li>
+                <li>Exponential distance: Distance among the layers decreases exponentially in ascending order.</li>
+                <li>Reverse Exponential distance: distance among layers decreases exponentially in descending order.</li>
+            </ul>
+        </p>
+        <p>
+            <table>
+                <thead>
+                    <th>Model Type</th>
+                    <th>Large</th>
+                    <th>Medium</th>
+                    <th>Small</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Equal Distance</td>
+                        <td>Model-1</td>
+                        <td>Model-2</td>
+                        <td>Model-3</td>
+                    </tr>
+                    <tr>
+                        <td>Exponential Distance</td>
+                        <td>Model-4</td>
+                        <td>Model-5</td>
+                        <td>Model-6</td>
+                    </tr>
+                    <tr>
+                        <td>Reverse Exponential Distance</td>
+                        <td>Model-7</td>
+                        <td>Model-8</td>
+                        <td>Model-9</td>
+                    </tr>
+                </tbody>
+            </table>        
+        </p>
+        <p>
+            <strong>Model Configuration:</strong>
+        </p>
+        <p>
+            <table>
+                <thead>
+                    <th>Model Number</th>
+                    <th>Size</th>
+                    <th>Distance</th>
+                    <th>Hidden Layer – Activation Size</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Model-1</td>
+                        <td>Large</td>
+                        <td>Equal</td>
+                        <td>784-590-397-203-10</td>
+                    </tr>
+                    <tr>
+                        <td>Model-2</td>
+                        <td>Medium</td>
+                        <td>Equal</td>
+                        <td>784-526-268-10</td>
+                    </tr>
+                    <tr>
+                        <td>Model-3</td>
+                        <td>Small</td>
+                        <td>Equal</td>
+                        <td>784-397-10</td>
+                    </tr>
+                    <tr>
+                        <td>Model-4</td>
+                        <td>Large</td>
+                        <td>Exponential</td>
+                        <td>784-732-629-423-10</td>
+                    </tr>
+                    <tr>
+                        <td>Model-5</td>
+                        <td>Medium</td>
+                        <td>Exponential</td>
+                        <td>784-673-452-10</td>
+                    </tr>
+                    <tr>
+                        <td>Model-6</td>
+                        <td>Small</td>
+                        <td>Exponential</td>
+                        <td>784-526-10</td>
+                    </tr>
+                    <tr>
+                        <td>Model-7</td>
+                        <td>Large</td>
+                        <td>Reverse Exponential</td>
+                        <td>784-371-164-61-10</td>
+                    </tr>
+                    <tr>
+                        <td>Model-8</td>
+                        <td>Medium</td>
+                        <td>Reverse Exponential</td>
+                        <td>784-342-121-10</td>
+                    </tr>
+                    <tr>
+                        <td>Model-9</td>
+                        <td>Small</td>
+                        <td>Reverse Exponential</td>
+                        <td>784-268-10</td>
+                    </tr>
+                </tbody>
+            </table>
+        </p>
+       <p>
+            <strong>Regularization Parameter (Lambda - λ): </strong><br>
+            11 different value of regularization parameter is used for each model. 
+            [0.01, 0.02, 0.04, 0.08, 0.16, 0.32, 0.64, 1.28, 2.56, 5.12, 10.24]
+       </p>      
+       <p>
+           <strong>View Detailed Results <a href="PerformanceReport.html"> here.</a></strong>
+       </p>
+    </body>
+</html>
