@@ -7,9 +7,10 @@
     <link type="text/css" rel="StyleSheet" href="sortabletable.css" />
 
     <style>
-        body{
-            margin:0% 25%;
+        body {
+            margin: 0% 25%;
         }
+
         table th,
         td {
             border: 1px solid black;
@@ -154,7 +155,7 @@
         </p>
     </h3>
     <p>
-        9 models of different 3 hidden layer size and 4 different activation unit size were tested to the find relation between performance
+        9 models of 3 different hidden layer size and 3 different activation unit size were tested to the find relation between performance
         and architecture.
     </p>
     <p>
@@ -163,11 +164,11 @@
             <li>Large: Model containing 3 hidden layers.</li>
             <li>Medium: Model containing 2 hidden layers.</li>
             <li>Small: Model containing 1 hidden layers.</li>
-            <li>Distance: Distance word is used to indicate the activation size in each layer. input size of the MNIST images
+            <li>Distance: Distance word is used to indicate the activation unit size in each layer. input size of the MNIST images
                 are 28*28=784 and the output space size is 10. So the distance is 784-10=774</li>
-            <li>Equal distance: Distance among the layers decreases equally.</li>
-            <li>Exponential distance: Distance among the layers decreases exponentially in ascending order.</li>
-            <li>Reverse Exponential distance: distance among layers decreases exponentially in descending order.</li>
+            <li>Equal Distance: Distance among the layers decreases equally.</li>
+            <li>Exponential Distance: Distance among the layers decreases exponentially in ascending order.</li>
+            <li>Reverse Exponential Distance: Distance among layers decreases exponentially in descending order.</li>
         </ul>
     </p>
     <p>
@@ -1220,7 +1221,7 @@
             "Percent", "Percent"
         ]);
     </script>
-    
+
     <h3>
         <p>
             Result Analysis:
@@ -1232,9 +1233,8 @@
         <br>
         <img src="Suitable Model Configuration.png">
         <br>
-        <br>
-        29 models in the 4th group of accuracy 96-100% performs better. The models in this group 
-        are further analyzed for finding appropriate architecture and regularization parameter.
+        <br> 29 models in the 4th group of accuracy 96-100% performs better. The models in this group are further analyzed for
+        finding appropriate architecture and regularization parameter.
     </p>
     <p>
         <strong>Selecting Value of Lambda:</strong>
@@ -1242,10 +1242,9 @@
         <br>
         <img src="LambdaVSVACount.png">
         <br>
-        <br>
-        Lambda values in the 1.28-10.24 range consistently gave better result than value lower than 1.28.
-        Particularly lambda = 10.24 performed much better than other values. But this high value might be over generalizing.
-        Lamda values in range 1.28 to 5.12 should be analyzed with much lower interval.
+        <br> Lambda values in the 1.28-10.24 range consistently gave better result than value lower than 1.28. Particularly lambda
+        = 10.24 performed much better than other values. But this high value might be over generalizing. Lamda values in
+        range 1.28 to 5.12 should be analyzed with much lower interval.
     </p>
     <p>
         <strong>Selecting Hidden Layer Size:</strong>
@@ -1253,8 +1252,7 @@
         <br>
         <img src="HiddenLayerSizeVSVACount.png">
         <br>
-        <br>
-        Clearly, Small hidden layers outperforms the other two sizes.
+        <br> Clearly, Small hidden layers outperforms the other two sizes.
     </p>
     <p>
         <strong>Selecting Activation Unit Configuration:</strong>
@@ -1262,19 +1260,506 @@
         <br>
         <img src="ActivationUnitConfigVSVACount.png">
         <br>
-        <br>
-        Equal and Exponential Configurations are equally powerfull. But the Equal configuration requires slightly less computation.
+        <br> Equal and Exponential Configurations are equally powerfull. But the Equal configuration requires slightly less computation.
     </p>
     <p>
-        <strong>Summary:</strong><br>
-        10 new model variation with-
+        <strong>Summary:</strong>
+        <br> 10 new model variation with-
         <ol>
             <li>Regularization value [1, 2, 3, 4, 5]</li>
             <li>Hidden Layer Size - Small</li>
             <li>Acivation Unit Config - Equal and Exponential</li>
         </ol>
-        will be further tested
+        will be further tested on Bengali Digit dataset.
     </p>
+    <h2>
+        <p>
+            Model Selection for Bengali Digit Dataset
+        </p>
+    </h2>
+    <h3>
+        <p>
+            Data Collection
+        </p>
+    </h3>
+    <p>
+        Bengali Digit is a custom dataset. It contains 470 20 by 20 pixel images of bengali digits. The dataset is has seperate training
+        and testing portion.
+        <ol>
+            <li>Training Set = 420 instances</li>
+            <li>Test Set = 50 instances</li>
+        </ol>
+    </p>
+    <h3>
+        <p>
+            Model Design
+        </p>
+    </h3>
+    <p>
+        2 models of 1 hidden layer and 2 different activation unit size were tested to the find relation between performance and
+        architecture.
+    </p>
+    <p>
+        <strong>Model Configuration:</strong>
+    </p>
+    <p>
+        <table>
+            <thead>
+                <th>Model Number</th>
+                <th>Size</th>
+                <th>Distance</th>
+                <th>Hidden Layer – Activation Size</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Model-3.2</td>
+                    <td>Small</td>
+                    <td>Equal</td>
+                    <td>400-195-10</td>
+                </tr>
+                <tr>
+                    <td>Model-6.2</td>
+                    <td>Small</td>
+                    <td>Exponential</td>
+                    <td>400-130-10</td>
+                </tr>
+            </tbody>
+        </table>
+    </p>
+    <p>
+        <strong>Regularization Parameter (Lambda - λ): </strong>
+        <br> 19 different value of regularization parameter is used for each model. [1, 2, 3, 4, 5, 5.1, 5.2, 5.3, 5.4, 5.5,
+        5.6, 5.7, 5.8, 5.9, 6, 7, 8, 9, 10]
+    </p>
+    <h3>
+        <p>
+            Results:
+        </p>
+    </h3>
+    <strong>Model Ouput:</strong>
+    <center>Click the table headers to sort</center>
+    <div id="PerformanceReport_5859" align=center x:publishsource="Excel">
+
+        <table class="sort-table" id="performance2" border=0 cellpadding=0 cellspacing=0 width=856 style='border-collapse:
+ collapse;table-layout:fixed;width:643pt'>
+            <col width=155 style='mso-width-source:userset;mso-width-alt:4966;width:116pt'>
+            <col width=70 style='width:53pt'>
+            <col width=118 style='mso-width-source:userset;mso-width-alt:3763;width:88pt'>
+            <col width=117 style='mso-width-source:userset;mso-width-alt:3737;width:88pt'>
+            <col width=125 span=2 style='mso-width-source:userset;mso-width-alt:3993;
+ width:94pt'>
+            <col width=146 style='mso-width-source:userset;mso-width-alt:4684;width:110pt'>
+            <thead>
+                <tr class=xl645859 height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 width=155 style='height:15.6pt;width:116pt'>Config-ID</td>
+                    <td class=xl635859 width=70 style='width:53pt'>Model</td>
+                    <td class=xl645859 width=118 style='width:88pt'>Lambda</td>
+                    <td class=xl645859 width=117 style='width:88pt'>Training Cost</td>
+                    <td class=xl645859 width=125 style='width:94pt'>Validation Cost</td>
+                    <td class=xl645859 width=125 style='width:94pt'>Training Accuracy</td>
+                    <td class=xl645859 width=146 style='width:110pt'>Validation Accuracy</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M03_L01.00</td>
+                    <td class=xl635859 style='border-top:none'>3</td>
+                    <td class=xl645859 style='background:#63BE7B;mso-pattern:black none'>1</td>
+                    <td class=xl645859 style='background:#63BE7B;mso-pattern:black none'>0.63411</td>
+                    <td class=xl645859 style='background:#64BE7B;mso-pattern:black none'>0.857347</td>
+                    <td class=xl655859 style='background:#63BE7B;mso-pattern:black none'>100.00%</td>
+                    <td class=xl655859 style='background:#FDD17F;mso-pattern:black none'>91.67%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M03_L010.00</td>
+                    <td class=xl635859 style='border-top:none'>3</td>
+                    <td class=xl645859 style='background:#F8696B;mso-pattern:black none'>10</td>
+                    <td class=xl645859 style='background:#F96C6C;mso-pattern:black none'>2.455442</td>
+                    <td class=xl645859 style='background:#F96D6C;mso-pattern:black none'>1.738057</td>
+                    <td class=xl655859 style='background:#F8696B;mso-pattern:black none'>92.26%</td>
+                    <td class=xl655859 style='background:#F98370;mso-pattern:black none'>88.10%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M03_L02.00</td>
+                    <td class=xl635859 style='border-top:none'>3</td>
+                    <td class=xl645859 style='background:#85C87D;mso-pattern:black none'>2</td>
+                    <td class=xl645859 style='background:#94CC7D;mso-pattern:black none'>1.025753</td>
+                    <td class=xl645859 style='background:#81C67C;mso-pattern:black none'>0.939081</td>
+                    <td class=xl655859 style='background:#63BE7B;mso-pattern:black none'>100.00%</td>
+                    <td class=xl655859 style='background:#FDD17F;mso-pattern:black none'>91.67%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M03_L03.00</td>
+                    <td class=xl635859 style='border-top:none'>3</td>
+                    <td class=xl645859 style='background:#A8D27F;mso-pattern:black none'>3</td>
+                    <td class=xl645859 style='background:#BAD780;mso-pattern:black none'>1.328436</td>
+                    <td class=xl645859 style='background:#A4D07E;mso-pattern:black none'>1.036927</td>
+                    <td class=xl655859 style='background:#63BE7B;mso-pattern:black none'>100.00%</td>
+                    <td class=xl655859 style='background:#FDD17F;mso-pattern:black none'>91.67%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M03_L04.00</td>
+                    <td class=xl635859 style='border-top:none'>3</td>
+                    <td class=xl645859 style='background:#CBDC81;mso-pattern:black none'>4</td>
+                    <td class=xl645859 style='background:#D9E081;mso-pattern:black none'>1.572303</td>
+                    <td class=xl645859 style='background:#C7DB80;mso-pattern:black none'>1.139022</td>
+                    <td class=xl655859 style='background:#A9D380;mso-pattern:black none'>99.40%</td>
+                    <td class=xl655859 style='background:#FDD17F;mso-pattern:black none'>91.67%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M03_L05.00</td>
+                    <td class=xl635859 style='border-top:none'>3</td>
+                    <td class=xl645859 style='background:#EDE683;mso-pattern:black none'>5</td>
+                    <td class=xl645859 style='background:#F2E783;mso-pattern:black none'>1.777419</td>
+                    <td class=xl645859 style='background:#ECE582;mso-pattern:black none'>1.242576</td>
+                    <td class=xl655859 style='background:#CBDC81;mso-pattern:black none'>99.11%</td>
+                    <td class=xl655859 style='background:#FFEB84;mso-pattern:black none'>92.86%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M03_L05.00</td>
+                    <td class=xl635859 style='border-top:none'>3</td>
+                    <td class=xl645859 style='background:#EDE683;mso-pattern:black none'>5</td>
+                    <td class=xl645859 style='background:#F2E783;mso-pattern:black none'>1.777419</td>
+                    <td class=xl645859 style='background:#ECE582;mso-pattern:black none'>1.242576</td>
+                    <td class=xl655859 style='background:#CBDC81;mso-pattern:black none'>99.11%</td>
+                    <td class=xl655859 style='background:#FFEB84;mso-pattern:black none'>92.86%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M03_L05.10</td>
+                    <td class=xl635859 style='border-top:none'>3</td>
+                    <td class=xl645859 style='background:#F1E683;mso-pattern:black none'>5.1</td>
+                    <td class=xl645859 style='background:#F5E883;mso-pattern:black none'>1.796156</td>
+                    <td class=xl645859 style='background:#EFE683;mso-pattern:black none'>1.253101</td>
+                    <td class=xl655859 style='background:#CBDC81;mso-pattern:black none'>99.11%</td>
+                    <td class=xl655859 style='background:#FFEB84;mso-pattern:black none'>92.86%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M03_L05.20</td>
+                    <td class=xl635859 style='border-top:none'>3</td>
+                    <td class=xl645859 style='background:#F4E883;mso-pattern:black none'>5.2</td>
+                    <td class=xl645859 style='background:#F7E883;mso-pattern:black none'>1.814737</td>
+                    <td class=xl645859 style='background:#F3E783;mso-pattern:black none'>1.262451</td>
+                    <td class=xl655859 style='background:#CBDC81;mso-pattern:black none'>99.11%</td>
+                    <td class=xl655859 style='background:#FFEB84;mso-pattern:black none'>92.86%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M03_L05.30</td>
+                    <td class=xl635859 style='border-top:none'>3</td>
+                    <td class=xl645859 style='background:#F8E983;mso-pattern:black none'>5.3</td>
+                    <td class=xl645859 style='background:#F9E983;mso-pattern:black none'>1.832869</td>
+                    <td class=xl645859 style='background:#F6E883;mso-pattern:black none'>1.273005</td>
+                    <td class=xl655859 style='background:#FEE783;mso-pattern:black none'>98.51%</td>
+                    <td class=xl655859 style='background:#FFEB84;mso-pattern:black none'>92.86%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M03_L05.40</td>
+                    <td class=xl635859 style='border-top:none'>3</td>
+                    <td class=xl645859 style='background:#FBEA83;mso-pattern:black none'>5.4</td>
+                    <td class=xl645859 style='background:#FCEA83;mso-pattern:black none'>1.85154</td>
+                    <td class=xl645859 style='background:#FAE983;mso-pattern:black none'>1.283861</td>
+                    <td class=xl655859 style='background:#EEE683;mso-pattern:black none'>98.81%</td>
+                    <td class=xl655859 style='background:#63BE7B;mso-pattern:black none'>94.05%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M03_L05.50</td>
+                    <td class=xl635859 style='border-top:none'>3</td>
+                    <td class=xl645859 style='background:#FFEB84;mso-pattern:black none'>5.5</td>
+                    <td class=xl645859 style='background:#FEEA83;mso-pattern:black none'>1.868421</td>
+                    <td class=xl645859 style='background:#FDEA83;mso-pattern:black none'>1.292928</td>
+                    <td class=xl655859 style='background:#FEE783;mso-pattern:black none'>98.51%</td>
+                    <td class=xl655859 style='background:#63BE7B;mso-pattern:black none'>94.05%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M03_L05.60</td>
+                    <td class=xl635859 style='border-top:none'>3</td>
+                    <td class=xl645859 style='background:#FFE984;mso-pattern:black none'>5.6</td>
+                    <td class=xl645859 style='background:#FFE984;mso-pattern:black none'>1.885666</td>
+                    <td class=xl645859 style='background:#FFE984;mso-pattern:black none'>1.304237</td>
+                    <td class=xl655859 style='background:#FEE783;mso-pattern:black none'>98.51%</td>
+                    <td class=xl655859 style='background:#63BE7B;mso-pattern:black none'>94.05%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M03_L05.70</td>
+                    <td class=xl635859 style='border-top:none'>3</td>
+                    <td class=xl645859 style='background:#FFE683;mso-pattern:black none'>5.7</td>
+                    <td class=xl645859 style='background:#FFE583;mso-pattern:black none'>1.903219</td>
+                    <td class=xl645859 style='background:#FFE683;mso-pattern:black none'>1.314267</td>
+                    <td class=xl655859 style='background:#FEE783;mso-pattern:black none'>98.51%</td>
+                    <td class=xl655859 style='background:#63BE7B;mso-pattern:black none'>94.05%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M03_L05.80</td>
+                    <td class=xl635859 style='border-top:none'>3</td>
+                    <td class=xl645859 style='background:#FFE383;mso-pattern:black none'>5.8</td>
+                    <td class=xl645859 style='background:#FFE183;mso-pattern:black none'>1.919769</td>
+                    <td class=xl645859 style='background:#FFE383;mso-pattern:black none'>1.324292</td>
+                    <td class=xl655859 style='background:#FEE783;mso-pattern:black none'>98.51%</td>
+                    <td class=xl655859 style='background:#63BE7B;mso-pattern:black none'>94.05%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M03_L05.90</td>
+                    <td class=xl635859 style='border-top:none'>3</td>
+                    <td class=xl645859 style='background:#FFE082;mso-pattern:black none'>5.9</td>
+                    <td class=xl645859 style='background:#FFDE82;mso-pattern:black none'>1.936601</td>
+                    <td class=xl645859 style='background:#FFE082;mso-pattern:black none'>1.334586</td>
+                    <td class=xl655859 style='background:#FEE783;mso-pattern:black none'>98.51%</td>
+                    <td class=xl655859 style='background:#FFEB84;mso-pattern:black none'>92.86%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M03_L06.00</td>
+                    <td class=xl635859 style='border-top:none'>3</td>
+                    <td class=xl645859 style='background:#FFDD82;mso-pattern:black none'>6</td>
+                    <td class=xl645859 style='background:#FFDA81;mso-pattern:black none'>1.952983</td>
+                    <td class=xl645859 style='background:#FFDD82;mso-pattern:black none'>1.344905</td>
+                    <td class=xl655859 style='background:#FEE783;mso-pattern:black none'>98.51%</td>
+                    <td class=xl655859 style='background:#FFEB84;mso-pattern:black none'>92.86%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M03_L06.00</td>
+                    <td class=xl635859 style='border-top:none'>3</td>
+                    <td class=xl645859 style='background:#FFDD82;mso-pattern:black none'>6</td>
+                    <td class=xl645859 style='background:#FFDA81;mso-pattern:black none'>1.952983</td>
+                    <td class=xl645859 style='background:#FFDD82;mso-pattern:black none'>1.344905</td>
+                    <td class=xl655859 style='background:#FEE783;mso-pattern:black none'>98.51%</td>
+                    <td class=xl655859 style='background:#FFEB84;mso-pattern:black none'>92.86%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M03_L07.00</td>
+                    <td class=xl635859 style='border-top:none'>3</td>
+                    <td class=xl645859 style='background:#FDC07C;mso-pattern:black none'>7</td>
+                    <td class=xl645859 style='background:#FDB97B;mso-pattern:black none'>2.104074</td>
+                    <td class=xl645859 style='background:#FDC07C;mso-pattern:black none'>1.447323</td>
+                    <td class=xl655859 style='background:#FDD57F;mso-pattern:black none'>97.62%</td>
+                    <td class=xl655859 style='background:#FDD17F;mso-pattern:black none'>91.67%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M03_L08.00</td>
+                    <td class=xl635859 style='border-top:none'>3</td>
+                    <td class=xl645859 style='background:#FCA377;mso-pattern:black none'>8</td>
+                    <td class=xl645859 style='background:#FB9C75;mso-pattern:black none'>2.236222</td>
+                    <td class=xl645859 style='background:#FCA377;mso-pattern:black none'>1.546923</td>
+                    <td class=xl655859 style='background:#FCB77A;mso-pattern:black none'>96.13%</td>
+                    <td class=xl655859 style='background:#FCB77A;mso-pattern:black none'>90.48%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M03_L09.00</td>
+                    <td class=xl635859 style='border-top:none'>3</td>
+                    <td class=xl645859 style='background:#FA8671;mso-pattern:black none'>9</td>
+                    <td class=xl645859 style='background:#FA8270;mso-pattern:black none'>2.352496</td>
+                    <td class=xl645859 style='background:#FA8771;mso-pattern:black none'>1.644457</td>
+                    <td class=xl655859 style='background:#F98770;mso-pattern:black none'>93.75%</td>
+                    <td class=xl655859 style='background:#F98370;mso-pattern:black none'>88.10%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M06_L01.00</td>
+                    <td class=xl635859 style='border-top:none'>6</td>
+                    <td class=xl645859 style='background:#63BE7B;mso-pattern:black none'>1</td>
+                    <td class=xl645859 style='background:#63BE7B;mso-pattern:black none'>0.640313</td>
+                    <td class=xl645859 style='background:#63BE7B;mso-pattern:black none'>0.851687</td>
+                    <td class=xl655859 style='background:#63BE7B;mso-pattern:black none'>100.00%</td>
+                    <td class=xl655859 style='background:#FDD17F;mso-pattern:black none'>91.67%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M06_L010.00</td>
+                    <td class=xl635859 style='border-top:none'>6</td>
+                    <td class=xl645859 style='background:#F8696B;mso-pattern:black none'>10</td>
+                    <td class=xl645859 style='background:#F8696B;mso-pattern:black none'>2.465595</td>
+                    <td class=xl645859 style='background:#F8696B;mso-pattern:black none'>1.748596</td>
+                    <td class=xl655859 style='background:#F86F6C;mso-pattern:black none'>92.56%</td>
+                    <td class=xl655859 style='background:#F8696B;mso-pattern:black none'>86.90%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M06_L02.00</td>
+                    <td class=xl635859 style='border-top:none'>6</td>
+                    <td class=xl645859 style='background:#85C87D;mso-pattern:black none'>2</td>
+                    <td class=xl645859 style='background:#95CC7D;mso-pattern:black none'>1.03347</td>
+                    <td class=xl645859 style='background:#81C67C;mso-pattern:black none'>0.939112</td>
+                    <td class=xl655859 style='background:#63BE7B;mso-pattern:black none'>100.00%</td>
+                    <td class=xl655859 style='background:#FDD17F;mso-pattern:black none'>91.67%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M06_L03.00</td>
+                    <td class=xl635859 style='border-top:none'>6</td>
+                    <td class=xl645859 style='background:#A8D27F;mso-pattern:black none'>3</td>
+                    <td class=xl645859 style='background:#BBD780;mso-pattern:black none'>1.337007</td>
+                    <td class=xl645859 style='background:#A3D07E;mso-pattern:black none'>1.035251</td>
+                    <td class=xl655859 style='background:#63BE7B;mso-pattern:black none'>100.00%</td>
+                    <td class=xl655859 style='background:#FDD17F;mso-pattern:black none'>91.67%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M06_L04.00</td>
+                    <td class=xl635859 style='border-top:none'>6</td>
+                    <td class=xl645859 style='background:#CBDC81;mso-pattern:black none'>4</td>
+                    <td class=xl645859 style='background:#DAE081;mso-pattern:black none'>1.582625</td>
+                    <td class=xl645859 style='background:#C8DB80;mso-pattern:black none'>1.141967</td>
+                    <td class=xl655859 style='background:#A9D380;mso-pattern:black none'>99.40%</td>
+                    <td class=xl655859 style='background:#FDD17F;mso-pattern:black none'>91.67%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M06_L05.00</td>
+                    <td class=xl635859 style='border-top:none'>6</td>
+                    <td class=xl645859 style='background:#EDE683;mso-pattern:black none'>5</td>
+                    <td class=xl645859 style='background:#F4E783;mso-pattern:black none'>1.788193</td>
+                    <td class=xl645859 style='background:#EDE683;mso-pattern:black none'>1.246583</td>
+                    <td class=xl655859 style='background:#CBDC81;mso-pattern:black none'>99.11%</td>
+                    <td class=xl655859 style='background:#FFEB84;mso-pattern:black none'>92.86%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M06_L05.00</td>
+                    <td class=xl635859 style='border-top:none'>6</td>
+                    <td class=xl645859 style='background:#EDE683;mso-pattern:black none'>5</td>
+                    <td class=xl645859 style='background:#F4E783;mso-pattern:black none'>1.788193</td>
+                    <td class=xl645859 style='background:#EDE683;mso-pattern:black none'>1.246583</td>
+                    <td class=xl655859 style='background:#CBDC81;mso-pattern:black none'>99.11%</td>
+                    <td class=xl655859 style='background:#FFEB84;mso-pattern:black none'>92.86%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M06_L05.10</td>
+                    <td class=xl635859 style='border-top:none'>6</td>
+                    <td class=xl645859 style='background:#F1E683;mso-pattern:black none'>5.1</td>
+                    <td class=xl645859 style='background:#F6E883;mso-pattern:black none'>1.807028</td>
+                    <td class=xl645859 style='background:#F1E783;mso-pattern:black none'>1.256863</td>
+                    <td class=xl655859 style='background:#EEE683;mso-pattern:black none'>98.81%</td>
+                    <td class=xl655859 style='background:#FFEB84;mso-pattern:black none'>92.86%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M06_L05.20</td>
+                    <td class=xl635859 style='border-top:none'>6</td>
+                    <td class=xl645859 style='background:#F4E883;mso-pattern:black none'>5.2</td>
+                    <td class=xl645859 style='background:#F8E983;mso-pattern:black none'>1.825442</td>
+                    <td class=xl645859 style='background:#F5E883;mso-pattern:black none'>1.26791</td>
+                    <td class=xl655859 style='background:#EEE683;mso-pattern:black none'>98.81%</td>
+                    <td class=xl655859 style='background:#63BE7B;mso-pattern:black none'>94.05%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M06_L05.30</td>
+                    <td class=xl635859 style='border-top:none'>6</td>
+                    <td class=xl645859 style='background:#F8E983;mso-pattern:black none'>5.3</td>
+                    <td class=xl645859 style='background:#FBE983;mso-pattern:black none'>1.843621</td>
+                    <td class=xl645859 style='background:#F8E983;mso-pattern:black none'>1.278011</td>
+                    <td class=xl655859 style='background:#EEE683;mso-pattern:black none'>98.81%</td>
+                    <td class=xl655859 style='background:#63BE7B;mso-pattern:black none'>94.05%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M06_L05.40</td>
+                    <td class=xl635859 style='border-top:none'>6</td>
+                    <td class=xl645859 style='background:#FBEA83;mso-pattern:black none'>5.4</td>
+                    <td class=xl645859 style='background:#FDEA83;mso-pattern:black none'>1.860877</td>
+                    <td class=xl645859 style='background:#FCEA83;mso-pattern:black none'>1.287862</td>
+                    <td class=xl655859 style='background:#EEE683;mso-pattern:black none'>98.81%</td>
+                    <td class=xl655859 style='background:#63BE7B;mso-pattern:black none'>94.05%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M06_L05.50</td>
+                    <td class=xl635859 style='border-top:none'>6</td>
+                    <td class=xl645859 style='background:#FFEB84;mso-pattern:black none'>5.5</td>
+                    <td class=xl645859 style='background:#FFEA84;mso-pattern:black none'>1.878925</td>
+                    <td class=xl645859 style='background:#FFEB84;mso-pattern:black none'>1.298728</td>
+                    <td class=xl655859 style='background:#EEE683;mso-pattern:black none'>98.81%</td>
+                    <td class=xl655859 style='background:#63BE7B;mso-pattern:black none'>94.05%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M06_L05.60</td>
+                    <td class=xl635859 style='border-top:none'>6</td>
+                    <td class=xl645859 style='background:#FFE984;mso-pattern:black none'>5.6</td>
+                    <td class=xl645859 style='background:#FFE784;mso-pattern:black none'>1.896264</td>
+                    <td class=xl645859 style='background:#FFE784;mso-pattern:black none'>1.309856</td>
+                    <td class=xl655859 style='background:#EEE683;mso-pattern:black none'>98.81%</td>
+                    <td class=xl655859 style='background:#FFEB84;mso-pattern:black none'>92.86%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M06_L05.70</td>
+                    <td class=xl635859 style='border-top:none'>6</td>
+                    <td class=xl645859 style='background:#FFE683;mso-pattern:black none'>5.7</td>
+                    <td class=xl645859 style='background:#FFE383;mso-pattern:black none'>1.913408</td>
+                    <td class=xl645859 style='background:#FFE583;mso-pattern:black none'>1.319432</td>
+                    <td class=xl655859 style='background:#FEE783;mso-pattern:black none'>98.51%</td>
+                    <td class=xl655859 style='background:#FFEB84;mso-pattern:black none'>92.86%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M06_L05.80</td>
+                    <td class=xl635859 style='border-top:none'>6</td>
+                    <td class=xl645859 style='background:#FFE383;mso-pattern:black none'>5.8</td>
+                    <td class=xl645859 style='background:#FFDF82;mso-pattern:black none'>1.929841</td>
+                    <td class=xl645859 style='background:#FFE283;mso-pattern:black none'>1.328901</td>
+                    <td class=xl655859 style='background:#FEE783;mso-pattern:black none'>98.51%</td>
+                    <td class=xl655859 style='background:#FFEB84;mso-pattern:black none'>92.86%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M06_L05.90</td>
+                    <td class=xl635859 style='border-top:none'>6</td>
+                    <td class=xl645859 style='background:#FFE082;mso-pattern:black none'>5.9</td>
+                    <td class=xl645859 style='background:#FFDB81;mso-pattern:black none'>1.946689</td>
+                    <td class=xl645859 style='background:#FFDF82;mso-pattern:black none'>1.33997</td>
+                    <td class=xl655859 style='background:#FEE783;mso-pattern:black none'>98.51%</td>
+                    <td class=xl655859 style='background:#FFEB84;mso-pattern:black none'>92.86%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M06_L06.00</td>
+                    <td class=xl635859 style='border-top:none'>6</td>
+                    <td class=xl645859 style='background:#FFDD82;mso-pattern:black none'>6</td>
+                    <td class=xl645859 style='background:#FED881;mso-pattern:black none'>1.96304</td>
+                    <td class=xl645859 style='background:#FFDC81;mso-pattern:black none'>1.350888</td>
+                    <td class=xl655859 style='background:#FEE783;mso-pattern:black none'>98.51%</td>
+                    <td class=xl655859 style='background:#FFEB84;mso-pattern:black none'>92.86%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M06_L06.00</td>
+                    <td class=xl635859 style='border-top:none'>6</td>
+                    <td class=xl645859 style='background:#FFDD82;mso-pattern:black none'>6</td>
+                    <td class=xl645859 style='background:#FED881;mso-pattern:black none'>1.96304</td>
+                    <td class=xl645859 style='background:#FFDC81;mso-pattern:black none'>1.350888</td>
+                    <td class=xl655859 style='background:#FEE783;mso-pattern:black none'>98.51%</td>
+                    <td class=xl655859 style='background:#FFEB84;mso-pattern:black none'>92.86%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M06_L07.00</td>
+                    <td class=xl635859 style='border-top:none'>6</td>
+                    <td class=xl645859 style='background:#FDC07C;mso-pattern:black none'>7</td>
+                    <td class=xl645859 style='background:#FDB77A;mso-pattern:black none'>2.114322</td>
+                    <td class=xl645859 style='background:#FDBE7C;mso-pattern:black none'>1.453491</td>
+                    <td class=xl655859 style='background:#FDD57F;mso-pattern:black none'>97.62%</td>
+                    <td class=xl655859 style='background:#FDD17F;mso-pattern:black none'>91.67%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M06_L08.00</td>
+                    <td class=xl635859 style='border-top:none'>6</td>
+                    <td class=xl645859 style='background:#FCA377;mso-pattern:black none'>8</td>
+                    <td class=xl645859 style='background:#FB9A75;mso-pattern:black none'>2.246644</td>
+                    <td class=xl645859 style='background:#FBA176;mso-pattern:black none'>1.555141</td>
+                    <td class=xl655859 style='background:#FCB77A;mso-pattern:black none'>96.13%</td>
+                    <td class=xl655859 style='background:#FCB77A;mso-pattern:black none'>90.48%</td>
+                </tr>
+                <tr height=21 style='height:15.6pt'>
+                    <td height=21 class=xl665859 style='height:15.6pt;border-top:none'>M06_L09.00</td>
+                    <td class=xl635859 style='border-top:none'>6</td>
+                    <td class=xl645859 style='background:#FA8671;mso-pattern:black none'>9</td>
+                    <td class=xl645859 style='background:#FA8070;mso-pattern:black none'>2.362727</td>
+                    <td class=xl645859 style='background:#FA8571;mso-pattern:black none'>1.653048</td>
+                    <td class=xl655859 style='background:#F98770;mso-pattern:black none'>93.75%</td>
+                    <td class=xl655859 style='background:#F98370;mso-pattern:black none'>88.10%</td>
+                </tr>
+                <![if supportMisalignedColumns]>
+                <tr height=0 style='display:none'>
+                    <td width=155 style='width:116pt'></td>
+                    <td width=70 style='width:53pt'></td>
+                    <td width=118 style='width:88pt'></td>
+                    <td width=117 style='width:88pt'></td>
+                    <td width=125 style='width:94pt'></td>
+                    <td width=125 style='width:94pt'></td>
+                    <td width=146 style='width:110pt'></td>
+                </tr>
+                <![endif]>
+            </tbody>
+        </table>
+
+    </div>
+
+    <script type="text/javascript">
+        var st2 = new SortableTable(document.getElementById("performance2"), ["String", "Number", "Number", "US", "US",
+            "Percent", "Percent"
+        ]);
+    </script>
 </body>
 
 </html>

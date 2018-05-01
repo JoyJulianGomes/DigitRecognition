@@ -6,17 +6,20 @@ type='html-file';
 %% Loading the MNIST dataset
 
 fprintf("Loading Training, Validation, Testing data...\n");
-load('MNIST/MNIST.mat');
+load('Bengali_Dataset/BN_NUM_CHARS.mat');
+%load('MNIST/MNIST.mat');
 fprintf("Loading Training, Validation, Testing data Complete\n");
 
 
 %% Preparing data for neural network input
 
-fprintf("Reshaping Train, Validation and Test Data...\n");
-trainXR = reshape(trainX, [size(trainX, 1)*size(trainX, 2), size(trainX, 3)]);
-trainXR = trainXR';
-valdXR = reshape(valdX, [size(valdX, 1)*size(valdX, 2), size(valdX, 3)]);
-valdXR = valdXR';
+%fprintf("Reshaping Train, Validation and Test Data...\n");
+%trainXR = reshape(trainX, [size(trainX, 1)*size(trainX, 2), size(trainX, 3)]);
+%trainXR = trainXR';
+trainXR = trainX;
+%valdXR = reshape(valdX, [size(valdX, 1)*size(valdX, 2), size(valdX, 3)]);
+%valdXR = valdXR';
+valdXR = trainXR(:
 testXR = reshape(testX, [size(testX, 1)*size(testX, 2), size(testX, 3)]);
 testXR = testXR';
 fprintf("Reshaping Train and Test Data Complete\n");
